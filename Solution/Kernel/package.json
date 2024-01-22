@@ -1,0 +1,12 @@
+{
+  "name": "@jardi-sentinelle/core",
+  "private": true,
+  "scripts": {
+    "debug": "eslint . --ext .ts"
+  },
+  "dependencies": {
+    "class-transformer": "^0.5.1",
+    "reflect-metadata": "^0.2.1",
+    "es6-shim": "^0.35.8"
+  }
+}

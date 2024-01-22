@@ -1,0 +1,25 @@
+{
+  "compilerOptions": {
+    "baseUrl": ".",
+    "lib": ["es2022", "esnext.disposable", "dom"],
+    "paths": {
+      "@core/*": ["./Solution/Core/*"],
+      "@assets/*": ["./Solution/Assets/*"],
+      "@components/*": ["./Solution/Assets/Components/*", "./Solution/Client/Components/*"],
+      "@modules/*": ["./Solution/Modules/*"]
+    },
+    "moduleResolution": "node",
+    "target": "ES2022",
+    "esModuleInterop": true,
+    "strict": true,
+    "skipLibCheck": true,
+    "forceConsistentCasingInFileNames": true,
+    "strictNullChecks": true,
+    "strictFunctionTypes": true,
+    "strictPropertyInitialization": true,
+    "strictBindCallApply": true,
+    "noImplicitAny": true,
+    "noImplicitThis": true,
+    "alwaysStrict": true
+  }
+}

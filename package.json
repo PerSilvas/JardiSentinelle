@@ -1,0 +1,25 @@
+{
+  "name": "jardi-sentinelle",
+  "private": true,
+  "scripts": {
+    "workspaces:install": "npm install --workspaces",
+    "start:client-web": "cd Solution/Client/Web && npm run start",
+    "start:client-storybook": "",
+    "tests": "vitest",
+    "debug:core": "cd ./Solution/Core && npm run debug"
+  },
+  "workspaces": [
+    "./Solution/Kernel/",
+    "./Solution/Core/",
+    "./Solution/Client/Web"
+  ],
+  "devDependencies": {
+    "@types/node": "^20.10.5",
+    "@typescript-eslint/eslint-plugin": "^6.12.0",
+    "@typescript-eslint/parser": "^6.12.0",
+    "eslint": "^8.54.0"
+  },
+  "peerDependencies": {
+    "typescript": "^5.3.3"
+  }
+}
