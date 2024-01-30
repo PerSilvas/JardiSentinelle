@@ -1,7 +1,34 @@
 <script>
-  import Root from "$lib/Root.svelte";
+  import Menu from "$lib/MenuNavigation/MenuNavigation.svelte";
 </script>
 
-<Root>
-  <slot></slot>
-</Root>
+<div class="root">
+  <div class="menu">
+    <Menu></Menu>
+  </div>
+  <div class="page">
+    <slot></slot>
+  </div>
+</div>
+
+<style lang="scss">
+  .root {
+    background-color: white;
+    display: flex;
+    flex-direction: row;
+    max-height: 100vh;
+    height: 100vh;
+  }
+
+  .menu {
+    width: calc(23% + 1em);
+    max-width: 22em;
+    min-width: 16em;
+    font-size: 1.15em;
+    height: 100%;
+  }
+
+  .page {
+    flex-grow: 1;
+  }
+</style>

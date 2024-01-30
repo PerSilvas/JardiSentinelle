@@ -3,7 +3,12 @@
     "baseUrl": ".",
     "lib": ["es2022", "esnext.disposable", "dom"],
     "paths": {
+      "@kernel/*": ["./Solution/Kernel/*"],
       "@core/*": ["./Solution/Core/*"],
+      "@application/*": ["./Solution/Core/Application/*"],
+      "@domain/*": ["./Solution/Core/Domain/*"],
+      "@infrastructure/*": ["./Solution/Core/Infrastructure/*"],
+      "@user-interface/*": ["./Solution/Core/UserInterface/*"],
       "@assets/*": ["./Solution/Assets/*"],
       "@components/*": ["./Solution/Assets/Components/*", "./Solution/Client/Components/*"],
       "@modules/*": ["./Solution/Modules/*"]

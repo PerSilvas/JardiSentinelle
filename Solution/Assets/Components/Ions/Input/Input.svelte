@@ -61,8 +61,7 @@
     font-weight: bold;
     outline: none;
     transition: border-color 0.3s;
-    color: var(--theme-secondary-light);
-    background-color: rgba(0, 0, 0, 0.2);
+    background-color: transparent;
     width: calc(100% - 2em);
   }
 

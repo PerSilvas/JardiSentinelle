@@ -1,5 +1,7 @@
-import { BaseApplication } from "../../Core/Application/BaseApplication";
-import { IPublisher } from "../../Core/Kernel/Publisher/IPublisher";
+import { BaseApplication } from "../../Kernel/Application/BaseApplication";
+import type { IPublisher } from "../../Kernel/Modules/Publisher/IPublisher";
+
+export const APPLICATION = Symbol("APPLICATION");
 
 export class Application extends BaseApplication {
   public constructor(publisher: IPublisher) {

@@ -1,29 +1,19 @@
 <script lang="ts">
-  import { MouseEventHandler } from 'svelte/elements';
-  import UpscaleHover from '../Effects/UpscaleHover.svelte';
-  import { Size } from '../Model/Size';
+	import { createEventDispatcher } from 'svelte';
 
   /** Is this the principal call to action on the page? */
   export let isPrimary: boolean = false;
-  
-  /** How large should the button be? */
-  export let size: Size = Size.MEDIUM;
-
-  /** The action to call on click. */
-  export let action: MouseEventHandler<HTMLButtonElement>;
 
   $: mode = isPrimary ? 'button-primary' : 'button-secondary';
+  
+	const dispatch = createEventDispatcher();
 </script>
 
-<UpscaleHover>
-  <button type="button" class="button {size} {mode}" on:click={action}>
-    <slot></slot>
-  </button>
-</UpscaleHover>
+<button type="button" class="button {mode}" on:click={() => { dispatch("click") }}>
+  <slot></slot>
+</button>
 
 <style lang="scss">
-  @import '@styles/size.css';
-
   .button { 
     border: 0;
     border-radius: 3em;
@@ -31,17 +21,17 @@
     display: inline-block;
     padding: 0.5em 1em;
     font-weight: bold;
-    border: 1px solid lightgray;
+    border: .13em solid lightgray;
     width: 100%;
   }
   
   .button-primary {
-    background-color: var(--theme-secondary-dark);
-    color: var(--theme-secondary-light);
+    font-size: 1.1em;
+    background-color: #304253;
+    color: white;
   }
 
   .button-secondary {
-    background-color: var(--theme-primary);
-    color: var(--theme-secondary-light);
+    background-color: transparent;
   }
 </style>

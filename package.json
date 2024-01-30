@@ -3,7 +3,8 @@
   "private": true,
   "scripts": {
     "workspaces:install": "npm install --workspaces",
-    "start:client-web": "cd Solution/Client/Web && npm run start",
+    "start:dev:client-software": "cd Solution/Client/Software && npm run tauri dev",
+    "start:dev:client-web": "cd Solution/Client/Web && npm run dev",
     "start:client-storybook": "",
     "tests": "vitest",
     "debug:core": "cd ./Solution/Core && npm run debug"
@@ -11,13 +12,16 @@
   "workspaces": [
     "./Solution/Kernel/",
     "./Solution/Core/",
+    "./Solution/Client/Software",
     "./Solution/Client/Web"
   ],
   "devDependencies": {
+    "@tauri-apps/cli": "^1.5.9",
     "@types/node": "^20.10.5",
     "@typescript-eslint/eslint-plugin": "^6.12.0",
     "@typescript-eslint/parser": "^6.12.0",
-    "eslint": "^8.54.0"
+    "eslint": "^8.54.0",
+    "svelte-preprocess-cssmodules": "^2.2.4"
   },
   "peerDependencies": {
     "typescript": "^5.3.3"

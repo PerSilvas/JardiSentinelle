@@ -1,0 +1,12 @@
+{
+	"name": "@jardi-sentinelle/client-software",
+	"version": "0.0.1",
+	"private": true,
+	"scripts": {
+		"tauri": "tauri"
+	},
+	"type": "module",
+	"devDependencies": {
+		"@tauri-apps/cli": "^1.5.9"
+	}
+}
