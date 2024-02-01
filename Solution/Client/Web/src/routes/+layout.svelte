@@ -3,7 +3,7 @@
 </script>
 
 <div class="root">
-  <div class="menu">
+  <div class="menu print-disabled">
     <Menu></Menu>
   </div>
   <div class="page">
@@ -30,5 +30,11 @@
 
   .page {
     flex-grow: 1;
+  }
+
+  @media print {
+    .root {
+      overflow: visible !important;
+    }
   }
 </style>

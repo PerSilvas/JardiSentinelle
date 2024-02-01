@@ -29,7 +29,7 @@
     visibility: hidden;
     background: white;
     border: 2px solid rgb(152, 177, 167);
-    transform: translateY(-110%);
+    transform: translateY(-120%);
     padding: 1em;
     padding-top: .4em;
     padding-bottom: .4em;
@@ -38,11 +38,15 @@
     margin: auto;
     margin-bottom: .3em;
     opacity: 0;
-    transition: all 200ms ease-in-out;
+    transition: all 150ms ease-out;
+    z-index: 1;
   }
 
-  .container:hover .tooltip {
-    visibility: visible;
-    opacity: 1;
+  
+  @media not print {
+    .container:hover .tooltip {
+      visibility: visible;
+      opacity: 1;
+    }
   }
 </style>

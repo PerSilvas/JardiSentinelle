@@ -1,15 +1,17 @@
 <script lang="ts">
+	import RegisterTaskForm from "@components/Pages/Records/RegisterTaskForm.svelte";
+	import RecordTable from "@components/Pages/Records/RecordTable.svelte";
 	import FormDisplayer from "@assets/Components/Ions/FormDisplayer.svelte";
-  import Title from "$lib/Components/Title.svelte";
   import { serviceLocator } from "@application/main";
   import { type IRecordService, RECORD_SERVICE } from "@core/Application/Record/Service/IRecordService";
   import { Record } from "@core/Domain/Record/Record";
   import { onMount } from "svelte";
-  import RegisterTaskForm from "$lib/Records/RegisterTaskForm.svelte";
   import Button from "@assets/Components/Ions/Button.svelte";
-  import RecordTable from "$lib/Records/RecordTable.svelte";
+  import Title from "@assets/Components/Ions/Title.svelte";
+  import { ViewRecord } from "@components/Pages/Records/ViewRecord";
+  import Page from "@assets/Components/Ions/Page.svelte";
 
-  let records: Array<Record> = new Array<Record>();
+  let viewRecords: Array<ViewRecord> = new Array<ViewRecord>();
   let showRegistrationForm: boolean = false;
 
   function OnRegisterTaskButtonClick(): void {
@@ -22,43 +24,36 @@
 
   onMount(async() => {
     const recordService: IRecordService = serviceLocator.Get(RECORD_SERVICE);
-    records = await recordService.GetAllRecords();
+    let records: Array<Record> = await recordService.GetAllRecords();
+
+    for (let i: number = 0; i < records.length; i++) {
+      viewRecords.push(new ViewRecord(records[i]));
+    }
+    
+    viewRecords = viewRecords;
   });
 </script>
 
-<div class="container">
+<Page>
   <Title>Historique des tâches</Title>
   
-  <div class="menu-action">
-    <Button isPrimary>
-      <p on:click={OnRegisterTaskButtonClick}>Enregistrer une tâche</p>
+  <menu>
+    <Button isPrimary on:click={OnRegisterTaskButtonClick}>
+      Enregistrer une tâche
     </Button>
-  </div>
+  </menu>
 
-  <RecordTable bind:records={records}></RecordTable>
+  <RecordTable bind:viewRecords={viewRecords}></RecordTable>
   
   {#if showRegistrationForm}
     <FormDisplayer>
       <RegisterTaskForm on:close={OnCloseTaskRegistrationForm}></RegisterTaskForm>
     </FormDisplayer>
   {/if}
-</div>
+</Page>
 
 <style lang="scss">
-  .menu-action {
+  menu {
     width: fit-content;
-  }
-
-  .container {
-    position: relative;
-    display: flex;
-    flex-direction: column;
-    gap: 2em;
-    max-width: 50em;
-    height: 100%;
-    max-height: 100vh;
-    margin: auto;
-    padding: 2em;
-    box-sizing: border-box; 
   }
 </style>

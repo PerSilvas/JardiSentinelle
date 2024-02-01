@@ -1,6 +1,6 @@
 <script lang="ts">
   import { goto } from "$app/navigation";
-  import Title from "$lib/Components/Title.svelte";
+  import Title from "@assets/Components/Ions/Title.svelte";
   import { createEventDispatcher } from "svelte";
   import Tab from "./Tab.svelte";
 
@@ -14,7 +14,7 @@
   function OnEncyclopediaTabClick(): void { goto("/"); }
 </script>
 
-<div class="wrapper prevent-select">
+<menu class="wrapper prevent-select">
   <Title>JardiSentinelle</Title>
   <div class="tabs">
     <Tab imageSource={""} text={"📶 Tableau de bord"} on:click={ OnDashboardTabClick }></Tab>
@@ -24,7 +24,7 @@
     <Tab imageSource={""} text={"🎯 Tâches"} on:click={ OnTasksTabClick }></Tab>
     <Tab imageSource={""} text={"📖 Encyclopédie"} on:click={ OnEncyclopediaTabClick }></Tab>
   </div>
-</div>
+</menu>
 
 <style>
   .prevent-select {

@@ -1,8 +1,9 @@
 import { Entity } from "../../../Kernel/Domain/Entity";
 import { RecordStatus } from "./RecordStatus";
 import { Task } from "../Task/Task";
+import { IRecord } from "./IRecord";
 
-export class Record extends Entity {
+export class Record extends Entity implements IRecord {
   private registrationDate: Date;
   private task: Task;
   private commentary: string;

@@ -2,7 +2,6 @@ import reactiveCSSPreprocessor from "svelte-reactive-css-preprocess";
 import preprocess from "svelte-preprocess";
 import adapter from "@sveltejs/adapter-static";
 import seqPreprocess from "svelte-sequential-preprocessor";
-import { cssModules } from "svelte-preprocess-cssmodules";
 
 /** @type {import('@sveltejs/kit').Config} */
 const config = {
@@ -13,8 +12,7 @@ const config = {
     sass: true,
     scss: {
       prependData: "@import './static/index.scss';"
-    },
-    cssModules
+    }
   }), reactiveCSSPreprocessor()]),
 
   kit: {

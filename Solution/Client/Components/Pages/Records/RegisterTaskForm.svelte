@@ -2,8 +2,8 @@
 	import { serviceLocator } from "@application/main";
   import { RECORD_SERVICE, type IRecordService } from "@core/Application/Record/Service/IRecordService";
 	import Button from "@assets/Components/Ions/Button.svelte";
-  import Box from "$lib/Components/Box.svelte";
-  import Title from "$lib/Components/Title.svelte";
+  import Box from "@assets/Components/Atoms/Box/Box.svelte";
+  import Title from "@assets/Components/Ions/Title.svelte";
 	import Input from "@assets/Components/Ions/Input/Input.svelte";
   import { createEventDispatcher, onMount } from "svelte";
   import { Record } from "@core/Domain/Record/Record";

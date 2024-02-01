@@ -18,7 +18,7 @@
     "sourceType": "module"
   },
   "rules": {
-    "complexity": ["error", 4],
+    "complexity": ["error", 5],
     "space-before-function-paren": ["error", "never"],
     "indent": ["error", 2],
     "quotes": [

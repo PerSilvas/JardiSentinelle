@@ -11,11 +11,31 @@
 
 <style lang="scss">
   .wrapper {
-    overflow-x:auto;
+    overflow-x: auto;
     margin-top: 0px;
-    border: 1px solid #CCC;
     background-color: transparent;
-    user-select: none;
+    border: 1px solid #c1d6d2;
+    @media print {
+      overflow: visible !important;
+    }
+  }  
+  
+  table {
+    border-collapse: separate !important;
+    @media screen {
+      border-collapse: collapse;
+    }
+    @media screen {
+      border-collapse: separate;
+    }
+  }
+
+  .wrapper :global(thead) {
+    position: sticky;
+    top: 0;
+    z-index: 1;
+    background-color: white !important;
+    font-weight: bold;
   }
 
   .wrapper :global(table) {
@@ -26,37 +46,37 @@
   }
   
   .wrapper :global(tr:nth-child(odd)) {
-    background-color: rgb(214, 235, 231)  }
+    background-color: rgb(214, 235, 231);
+  }
 
   .wrapper :global(tr:nth-child(even)) {
     background-color: white;
   }
-
+  
   .wrapper :global(tr) {
     transition: all .17s ease-out;
     vertical-align: middle;
-    &:hover {
-      background-color: #f3dbd1; 
-      filter: brightness(105%);
+    @media print {
+      page-break-inside: avoid;
+    }
+  }
+  
+  .wrapper :global(td), .wrapper :global(th) {
+    border: 1px solid #c1d6d2;
+    @media screen {
+      padding: .7em;
+    }
+    @media print {
+      padding: .5em;
     }
   }
 
-  .wrapper thead {
-    border-bottom: 1px solid #c1d6d2;
-    font-weight: bold;
-  }
-
   .wrapper :global(th) {
-    padding: 1em;
     text-transform: uppercase;
-    border-right: 1px solid #c1d6d2;
-    border-left: 1px solid #c1d6d2;
+      padding: 1.1em;
   }
 
   .wrapper :global(td) {
-    padding: .9em;
-    border-right: 1px solid #c1d6d2;
-    border-left: 1px solid #c1d6d2;
     vertical-align: middle;
   }
 

@@ -1,0 +1,8 @@
+{
+  "name": "@jardisentinelle/assets-components",
+  "version": "0.0.1",
+  "private": true,
+  "devDependencies": {
+    "svelte": "^4.2.7"
+  }
+}

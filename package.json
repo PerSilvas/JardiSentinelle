@@ -13,15 +13,15 @@
     "./Solution/Kernel/",
     "./Solution/Core/",
     "./Solution/Client/Software",
-    "./Solution/Client/Web"
+    "./Solution/Client/Web",
+    "./Solution/Client/Components"
   ],
   "devDependencies": {
     "@tauri-apps/cli": "^1.5.9",
     "@types/node": "^20.10.5",
     "@typescript-eslint/eslint-plugin": "^6.12.0",
     "@typescript-eslint/parser": "^6.12.0",
-    "eslint": "^8.54.0",
-    "svelte-preprocess-cssmodules": "^2.2.4"
+    "eslint": "^8.54.0"
   },
   "peerDependencies": {
     "typescript": "^5.3.3"

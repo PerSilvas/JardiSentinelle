@@ -1,0 +1,43 @@
+@media print {
+  html, body {
+    margin: 0 !important; 
+    padding: 0 !important;
+    page-break-after: avoid;
+    page-break-before: avoid;
+  }
+
+  @page {
+    size: auto;
+    margin: 10mm;
+  }
+
+  .print-overflow-visible {
+    overflow: visible !important;
+  }
+
+  .print-disabled, menu {
+    display: none;
+  }
+  
+  div {
+    page-break-inside: avoid;
+  }
+
+  body {
+    width: 100%;
+  }
+
+  a {
+    text-decoration: none;
+    color: black;
+  }
+
+  a[href^="http://"]:after, a[href^="ftp://"]:after {
+    content: " (" attr(href) ")";
+    font-size: 10pt;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    page-break-after: avoid;
+  }
+}
