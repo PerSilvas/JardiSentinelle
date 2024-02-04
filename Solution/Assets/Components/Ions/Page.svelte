@@ -2,7 +2,7 @@
   <slot></slot>
 </div>
 
-<style>
+<style style="scss">
   .container {
     position: relative;
     display: flex;
@@ -13,7 +13,10 @@
     max-height: 100vh;
     margin: auto;
     padding: 2em;
-    box-sizing: border-box; 
+    box-sizing: border-box;
+    @media screen {
+      overflow: hidden;
+    }
   }
 
   @media print {

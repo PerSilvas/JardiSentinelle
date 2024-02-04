@@ -39,7 +39,7 @@
 
 <style lang="scss">
   .wrapper {
-    overflow-x: auto;
+    overflow-y: auto;
     margin-top: 0px;
     background-color: transparent;
     border: 1px solid #c1d6d2;
@@ -74,7 +74,7 @@
   }
   
   .wrapper :global(tr:nth-child(odd)) {
-    background-color: rgb(214, 235, 231);
+    background-color: #d6ebe7;
   }
 
   .wrapper :global(tr:nth-child(even)) {

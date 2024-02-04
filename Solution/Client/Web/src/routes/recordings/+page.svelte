@@ -1,7 +1,6 @@
 <script lang="ts">
 	import RegisterTaskForm from "@components/Pages/Records/RegisterTaskForm.svelte";
 	import RecordTable from "@components/Pages/Records/RecordTable.svelte";
-	import FormDisplayer from "@assets/Components/Ions/FormDisplayer.svelte";
   import { serviceLocator } from "@application/main";
   import { type IRecordService, RECORD_SERVICE } from "@core/Application/Record/Service/IRecordService";
   import { Record } from "@core/Domain/Record/Record";

@@ -6,12 +6,12 @@
 
   const dispatch = createEventDispatcher();
 
-  function OnDashboardTabClick(): void { goto("/"); }
-  function OnCultureTabClick(): void { goto("/"); }
-  function OnMapTabClick(): void { goto("/"); }
+  function OnDashboardTabClick(): void { goto("/dashboard"); }
+  function OnCultureTabClick(): void { goto("/plantations"); }
+  function OnMapTabClick(): void { goto("/mapping"); }
   function OnRecordsTabClick(): void { goto("/recordings"); }
   function OnTasksTabClick(): void { goto("/tasks"); }
-  function OnEncyclopediaTabClick(): void { goto("/"); }
+  function OnEncyclopediaTabClick(): void { goto("/encyclopedia"); }
 </script>
 
 <menu class="wrapper prevent-select">
