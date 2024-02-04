@@ -5,4 +5,5 @@ export interface IRecord {
   get RegistrationDate(): Date;
   get Task(): Task;
   get IsDone(): boolean;
+  get TimeGap(): number;
 }

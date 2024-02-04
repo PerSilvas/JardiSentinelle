@@ -1,13 +1,25 @@
 <script lang="ts">
+	import { onMount } from "svelte";
   import ToolTip from "@assets/Components/Atoms/ToolTip.svelte";
   import Date from "@assets/Components/Ions/Date.svelte"
   import { ViewRecord } from "./ViewRecord";
-  import Table from "@assets/Components/Molecules/Table.svelte";
+  import Table from "@assets/Components/Molecules/Table/Table.svelte";
+  import { Criteria } from "@assets/Components/Molecules/Table/Criteria";
+  import { SortOrder } from "@assets/Components/Molecules/Table/SortOrder";
 
   export let viewRecords: Array<ViewRecord>;
+  let criteria: Criteria = new Criteria("RegistrationDate", SortOrder.ASCENDING);
+
+  onMount(() => {
+    criteria = new Criteria("RegistrationDate", SortOrder.ASCENDING);
+  });
+
+  function UpdateRecord(): void {
+    viewRecords = viewRecords;
+  }
 </script>
 
-<Table>
+<Table bind:records={viewRecords} bind:criteria={criteria} on:sorted={ UpdateRecord }>
   <tr slot="header">
     <th class="column-statut">Statut</th>
     <th>Date</th>

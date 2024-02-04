@@ -9,7 +9,6 @@ export class ServiceLocator {
   
   public Register<Type>(symbol: symbol, dependency: Type): void {
     this.dependencies.set(symbol, dependency);
-    console.log(symbol.toString());
   }
 
   public Unregister(symbol: symbol): void {

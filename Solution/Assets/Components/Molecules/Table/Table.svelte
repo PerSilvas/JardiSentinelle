@@ -1,5 +1,33 @@
+<script lang="ts">
+  import { createEventDispatcher, onMount } from "svelte";
+  import { Criteria } from "./Criteria";
+
+  const dispatch = createEventDispatcher();
+
+  export let records: Array<any>;
+  export let criteria: Criteria;
+
+  function Sort(array: Array<any>, criteria: Criteria) {
+    records.sort((a, b) => {
+      let isAGreaterThanB: boolean = a[criteria.Field] > b[criteria.Field];
+      const result: number = isAGreaterThanB ? 1 : -1;
+      return criteria.Order === criteria.Order ? result : -result;
+    });
+    records = records;
+    dispatch("sorted", records);
+  }
+
+  $: {
+    Sort(records, criteria);
+  }
+
+  onMount(() => {
+    Sort(records, criteria);
+  });
+</script>
+
 <div class="wrapper">
-  <table>
+  <table class="sortable searchable">
     <thead>
       <slot name="header"></slot>
     </thead>

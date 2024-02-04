@@ -46,9 +46,7 @@
   <RecordTable bind:viewRecords={viewRecords}></RecordTable>
   
   {#if showRegistrationForm}
-    <FormDisplayer>
-      <RegisterTaskForm on:close={OnCloseTaskRegistrationForm}></RegisterTaskForm>
-    </FormDisplayer>
+    <RegisterTaskForm on:close={OnCloseTaskRegistrationForm}></RegisterTaskForm>
   {/if}
 </Page>
 

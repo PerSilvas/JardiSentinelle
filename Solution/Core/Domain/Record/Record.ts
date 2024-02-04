@@ -35,6 +35,17 @@ export class Record extends Entity implements IRecord {
   public get IsDone(): boolean { return this.isDone; }
   public set IsDone(value: boolean) { this.isDone = value; }
 
+  public get TimeGap(): number {
+    const today: Date = new Date();
+    const recordDate: Date = new Date(this.registrationDate);
+
+    today.setHours(0, 0, 0, 0);
+    recordDate.setHours(0, 0, 0, 0);
+
+    const timegap: number = recordDate.getTime() - today.getTime();
+    return Math.floor(timegap / (1000 * 60 * 60 * 24));
+  }
+
   public get Status(): RecordStatus {
     let status: RecordStatus = RecordStatus.UNDEFINED;
     const dateNow: Date = new Date();
