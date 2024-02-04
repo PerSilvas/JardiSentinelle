@@ -25,6 +25,7 @@
     <th>Date</th>
     <th class="column-task">Tâche</th>
     <th>Commentaire</th>
+    <th class="column-is-done">Fait</th>
   </tr>
   
   {#each viewRecords as viewRecord}
@@ -41,6 +42,7 @@
       </td>
       <td>{viewRecord.Task.Name}</td>
       <td>{viewRecord.Commentary}</td>
+      <td><input type="checkbox" bind:checked={viewRecord.IsDone}/></td>
     </tr>
   {/each}
 </Table>
@@ -54,11 +56,15 @@
 
 <style lang="scss">
   .column-statut {
-    width: 4em;
+    width: 3.5em;
   }
   
   .column-task {
     width: 7em;
+  }
+
+  .column-is-done {
+    width: 2em;
   }
 
   .no-user-select {

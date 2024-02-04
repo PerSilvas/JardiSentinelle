@@ -49,14 +49,14 @@ export class Record extends Entity implements IRecord {
   public get Status(): RecordStatus {
     let status: RecordStatus = RecordStatus.UNDEFINED;
     const dateNow: Date = new Date();
-
-    if (dateNow.getTime() > this.registrationDate.getTime())
-      if (this.isDone)
-        status = RecordStatus.DONE;
-      else
-        status = RecordStatus.NOT_DONE;
+      
+    if (this.isDone)
+      status = RecordStatus.DONE;
     else
-      status = RecordStatus.TO_DO;
+      if (this.registrationDate.getTime() < dateNow.getTime())
+        status = RecordStatus.NOT_DONE;
+      else
+        status = RecordStatus.TO_DO;
 
     return status;
   }

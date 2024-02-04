@@ -17,22 +17,27 @@ export class ViewRecord implements IRecord {
   public get Task(): Task { return this.record.Task; }
 
   public get IsDone(): boolean { return this.record.IsDone; }
+  public set IsDone(value: boolean) { this.record.IsDone = value; }
   
   public get TimeGap(): number { return this.record.TimeGap; }
 
   public get ColoredStatusCircle(): string {
-    let circle = "⚫"; // Default circle
+    let circle = "⚫";
   
     const todayStr = new Date().toISOString().split("T")[0];
     const registrationDateStr = this.record.RegistrationDate.toISOString().split("T")[0];
   
     if (this.record.Status === RecordStatus.TO_DO) {
-      circle = (registrationDateStr === todayStr) ? "🟡" : "🔵";
-    } else if (this.record.Status === RecordStatus.DONE) {
-      circle = "🟢";
+      if (registrationDateStr === todayStr)
+        circle = "🟡";
+      else
+        circle = "🔵";
     } else if (this.record.Status === RecordStatus.NOT_DONE) {
       circle = "🟠";
     }
+
+    if (this.record.Status === RecordStatus.DONE)
+      circle = "🟢";
   
     return circle;
   }
