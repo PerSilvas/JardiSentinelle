@@ -20,7 +20,7 @@
   "rules": {
     "complexity": ["error", 5],
     "space-before-function-paren": ["error", "never"],
-    "indent": ["error", 2],
+    "indent": ["error", 4],
     "quotes": [
       "error",
       "double"

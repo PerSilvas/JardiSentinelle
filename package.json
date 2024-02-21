@@ -1,12 +1,13 @@
 {
   "name": "jardi-sentinelle",
+  "type": "module",
   "private": true,
   "scripts": {
     "workspaces:install": "npm install --workspaces",
     "start:dev:client-software": "cd Solution/Client/Software && npm run tauri dev",
     "start:dev:client-web": "cd Solution/Client/Web && npm run dev",
     "start:client-storybook": "",
-    "tests": "vitest",
+    "tests": "jest",
     "debug:core": "cd ./Solution/Core && npm run debug"
   },
   "workspaces": [
@@ -18,10 +19,17 @@
   ],
   "devDependencies": {
     "@tauri-apps/cli": "^1.5.9",
+    "@types/jest": "^29.5.12",
     "@types/node": "^20.10.5",
     "@typescript-eslint/eslint-plugin": "^6.12.0",
     "@typescript-eslint/parser": "^6.12.0",
-    "eslint": "^8.54.0"
+    "eslint": "^8.54.0",
+    "install": "^0.13.0",
+    "jest": "^29.7.0",
+    "npm": "^10.4.0",
+    "simply-either-ts": "^1.0.0",
+    "ts-jest": "^29.1.2",
+    "ts-node": "^10.9.2"
   },
   "peerDependencies": {
     "typescript": "^5.3.3"
