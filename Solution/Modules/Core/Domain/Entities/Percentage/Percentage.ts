@@ -1,5 +1,7 @@
-import { ValueBelowZeroError } from "@modules/Core/Domain/Entities/Percentage/ValueBelowZeroError";
-import { ValueExceededOneHundredError } from "./ValueExceededOneHundredError";
+import { PercentageMustBePositive } from "@modules/Core/Domain/Entities/Percentage/Errors/PercentageMustBePositive";
+import { ValueMustBeInferiorToOneHundred } from "./Errors/ValueMustBeInferiorToOneHundred";
+import { Either, Failure, Success } from "simply-either-ts";
+import { PercentageError } from "@modules/Core/Domain/Entities/Percentage/Errors/PercentageError";
 
 /**
  * This represents a ratio value in percentage.
@@ -7,17 +9,21 @@ import { ValueExceededOneHundredError } from "./ValueExceededOneHundredError";
 export class Percentage {
     private readonly value: number;
 
+    private constructor(value: number) {
+        this.value = value;
+    }
+
     /**
-     * Constructor.
+     * Factory method to create a percentage.
      * @param value - The value must be between 0 and 100.
      */
-    public constructor(value: number) {
+    public static Create(value: number): Either<Percentage, PercentageError> {
         if (value < 0)
-            throw new ValueBelowZeroError();
+            return Failure(new PercentageMustBePositive());
         else if (value > 100)
-            throw new ValueExceededOneHundredError();
+            return Failure(new ValueMustBeInferiorToOneHundred());
 
-        this.value = value;
+        return Success(new Percentage(value));
     }
 
     public get Value(): number { return this.value; }
